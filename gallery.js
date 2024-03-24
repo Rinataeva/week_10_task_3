@@ -9,7 +9,7 @@
       let currentImage = image2;
       //Объявляю функцию для смены картинки
       function shiftImage() {
-        galleryImage.src = image3;
+        galleryImage.src = currentImage;
       }
       //Объявляю функцию нажатия на кнопку вперед и вызываю ее с помощью слушателя события .addEventListener
       forwardButton.addEventListener("click", () => {
@@ -18,6 +18,6 @@
       });
       //Объявляю функцию нажатия на кнопку назад и вызываю ее аналогичным образом (не работает)
       backwardButton.addEventListener("click", () => {
-        currentImage = image3;
+        currentImage = image2;
         shiftImage();
       });
