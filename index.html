@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+    <style>
+      html {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      h1 {
+        text-align: center;
+        color: #21078080;
+      }
+      .wrapper {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: antiquewhite;
+      }
+      .imgDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #827e90;
+      }
+      img {
+        width: 600px;
+        height: 420px;
+        padding: 20px;
+      }
+      .btnDiv {
+        display: flex;
+        justify-content: center;
+        background-color: #827e90;
+        width: 640px;
+      }
+      button {
+        width: 150px;
+        height: 50px;
+        background-color: #4f1ba33f;
+        color: rgb(80, 226, 43);
+        border-radius: 0.3em;
+        box-shadow: 0px 10px 25px 0px #d2b1cf4d;
+        background-size: cover;
+        border: 0.1em solid #827e90;
+        cursor: pointer;
+        margin: 20px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gallery of Images</h1>
+    <div class="wrapper">
+      <div class="imgDiv">
+        <img class="image" src="../images/image3.JPG" alt="an image of flowers"/>
+        <img class="image" src="../images/image4.JPG" alt="an image of flowers">
+      </div>
+      <div class="btnDiv">
+        <button>Backward</button>
+        <button>Forward</button>
+      </div>
+    </div>
+    <script>
+        const images = document.querySelectorAll('img');
+        const buttons = document.querySelectorAll('button');
+
+        let currentImage = 0; // это индекс первой картинки
+        images[1].style.display = 'none'; // вторая картинка скрыта
+
+        buttons.forEach((button)=>{ //берем кнопки и вешаем на них колбэк функцию
+            button.addEventListener('click', ()=>{ //по клику на кнопку у нас должно пропасть первое изображение
+                images[currentImage].style.display = 'none'; // 
+                currentImage = (currentImage + 1) % 2; // зациклим кнопки (при делении нуля на 2 остаток 1)
+                images[currentImage].style.display = 'block';
+            })
+        });
+      
+      
+    </script>
+  </body>
+</html>
