@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Галерея изображений</title>
     <style>
-      .gallery-img {
+      .gallery {
         margin-top: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      #galleryImage {
-        width: 850px;
-        height: 580px;
+      img {
+        width: 250px;
+        height: 150px;
       }
       #backwardButton,
       #forwardButton {
@@ -32,17 +32,27 @@
   <body>
     <div class="gallery-img">
       <div id="gallery">
-        <img
-          src="./images/image2.JPG"
-          alt="an image of flowers"
-          id="galleryImage"
-        />
+        <img src="../images/image2.JPG" alt="flowers">
       </div>
       <div class="gallery-btn">
         <button id="backwardButton">Назад</button>
         <button id="forwardButton">Вперед</button>
       </div>
     </div>
-    <script src="./gallery.js"></script>
+    <script>
+
+    //привязываюсь к дому
+      const imgGallery = document.querySelector('img');
+      const forwardButton = document.querySelector('#forwardButton');
+      const backwardButton = document.querySelector('#backwardButton');
+//на кнопки вывожу картинки
+        forwardButton.addEventListener('click', function(){
+imgGallery.src = "../images/image4.JPG";
+        });
+        backwardButton.addEventListener('click', function(){
+          imgGallery.src = "../images/image2.JPG"
+        });
+
+    </script>
   </body>
 </html>
