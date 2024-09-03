@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+    <style>
+      html {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      h1 {
+        text-align: center;
+        color: #21078080;
+      }
+      .wrapper {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: antiquewhite;
+      }
+      .imgDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #827e90;
+      }
+      .img {
+        width: 600px;
+        height: 420px;
+        padding: 20px;
+      }
+      .btnDiv {
+        display: flex;
+        justify-content: center;
+        background-color: #827e90;
+        width: 640px;
+      }
+      #forBtn,
+      #backBtn {
+        width: 150px;
+        height: 50px;
+        background-color: #4f1ba33f;
+        color: rgb(80, 226, 43);
+        border-radius: 0.3em;
+        box-shadow: 0px 10px 25px 0px #d2b1cf4d;
+        background-size: cover;
+        border: 0.1em solid #827e90;
+        cursor: pointer;
+        margin: 20px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gallery of Images</h1>
+    <div class="wrapper">
+      <div class="imgDiv">
+        <img
+          class="img"
+          id="img1"
+          src="../images/image1.JPG"
+          alt="an image of flowers"
+        />
+      </div>
+      <div class="btnDiv">
+        <button id="backBtn">Backward</button>
+        <button id="forBtn">Forward</button>
+      </div>
+    </div>
+    <script>
+      //Создаю переменные и кладу в них ссылки на изображения
+      const image1 = "../images/image1.JPG";
+      const image2 = "../images/image4.JPG";
+      //Получаю элементы html by Id, class 
+      const galleryImg = document.getElementById("img1");
+      const divElem = document.querySelector(".imgDiv");
+      const backBtn = document.getElementById("backBtn");
+      const forBtn = document.getElementById("forBtn");
+
+      //Объявляю переменную для текущего изображения
+      let currentPage = image1;
+      //Создаю функцию для смены картинки и использую полученный из Дома элемент и его свойство src и присваиваю текущему изображению
+      function shiftImg() {
+        galleryImg.src = currentPage;
+      }
+      //нужно с нажатием получать другую картинку. Слушаю addEventListener два события (нажатие и смену картинки)/ вызываю функцию внутри
+      forBtn.addEventListener("click", () => {
+        currentPage = image2;
+        shiftImg();
+      });
+      //с кнопкой назад делаю то же самое
+      backBtn.addEventListener("click", () => {
+        currentPage = image1;
+        shiftImg();
+      });
+    </script>
+  </body>
+</html>
