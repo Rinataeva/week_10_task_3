@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <div class="counter counter_1">
+      <button>Счетчик</button>
+      <div></div>
+    </div>
+    <div class="counter counter_2">
+      <button>Счетчик</button>
+      <div></div>
+    </div>
+
+    <script>
+      //создание одного счетчика
+      // const button = document.querySelector("button");
+      // const div = document.querySelector("div");
+      // let i = 0;
+      // function onClick() {
+      //  i++
+      //  div.textContent = i;
+      //  };
+      // button.onclick = onClick; // обращаемся к методу и особенность в том, что функцию не вызываем
+
+      //создание сразу двух счетчиков - первый способ
+      //для этого нам потребуется один шаг - уточнение, внутри чего находятся элементы, с которыми мы работаем
+      // function createCounter(counterElement) {
+      //   //подстраиваем функцию под себя, задаем аргумент - некий счетчик
+      //   const button = counterElement.querySelector("button");
+      //   const div = counterElement.querySelector("div"); //и здесь уже ищем не во всем документе, а внутри этого счетчика
+
+      //   let i = 0;
+      //   function onClick() {
+      //     i++;
+      //     div.textContent = i;
+      //   }
+      //   button.onclick = onClick;
+      // }
+      // const counter1 = document.querySelector(".counter_1"); //находим по классу счетчики
+      // const counter2 = document.querySelector(".counter_2");
+      // createCounter(counter1); //и передаем их в качестве аргумента
+      // createCounter(counter2); //я говорю функции - работай с этой областью на странице
+
+      //второй способ - по селектору - код короче 
+
+      function createCounter(selector) {
+        //найди мне по этому selector элемент и в нем уже поищи кнопку и див
+        const counterElement = document.querySelector(selector);
+        const button = counterElement.querySelector("button");
+        const div = counterElement.querySelector("div"); //
+
+        let i = 0;
+        function onClick() {
+          i++;
+          div.textContent = i;
+        }
+        button.onclick = onClick;
+      }
+
+      createCounter(".counter_1"); //передаем селектор (имя класса) в качестве аргумента, говоря - работай в этой области 
+      createCounter(".counter_2"); 
+    </script>
+  </body>
+</html>
