@@ -1,6 +1,6 @@
       //Создаю переменные для хранения путей к изображениям
-      const image2 = "./images/image2.JPG";
-      const image3 = "./images/image3.JPG";
+      const image2 = "./images/2.JPG";
+      const image3 = "./images/3.JPG";
       // Использую id для получения элементов дерева
       const galleryImage = document.getElementById("galleryImage");
       const backwardButton = document.getElementById("backwardButton");

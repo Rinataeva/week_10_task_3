@@ -52,41 +52,45 @@
     </style>
   </head>
   <body>
-    <h1>Gallery of Images by Konstantin</h1>
+    <h1>Gallery of Images by Marina</h1>
     <div class="wrapper">
       <div class="imgDiv">
+        <img
+          class="image"
+          src="../images/1.JPG"
+          alt="an image of flowers"
+        />
+        <img
+          class="image"
+          src="../images/2.JPG"
+          alt="an image of flowers"
+        />
         <img
           class="image"
           src="../images/3.JPG"
           alt="an image of flowers"
         />
-        <img
-          class="image"
-          src="../images/4.JPG"
-          alt="an image of flowers"
-        />
       </div>
       <div class="btnDiv">
-        <button>Backward</button>
-        <button>Forward</button>
+        <button class="left" onclick="onLeftClick()"><--</button>
+        <button class="right" onclick="onRightClick()">--></button>
       </div>
     </div>
     <script>
-      const images = document.querySelectorAll("img"); // получаю все картинки 
-      const buttons = document.querySelectorAll("button"); // получаю все кнопки 
+      const buttonLeft = document.querySelector(".left");
+      const buttonRight = document.querySelector(".right");
 
-      let currentImage = 0; // устанавливаю начальное значение переменной равным 0, что указывает на первую картинку
-      images[1].style.display = "none"; // скрываю вторую картинку, устанавливая ей свойство display
-
-      buttons.forEach((button) => {
-        //берем кнопки и вешаем на них колбэк функцию
-        button.addEventListener("click", () => {
-          //по клику на кнопку скрываю текущее изображение
-          images[currentImage].style.display = "none"; //
-          currentImage = (currentImage + 1) % 2; // увеличиваем значение currentImage на 1 и берем остаток от деления на 2, чтобы зациклить показ изображения (остаток 1)
-          images[currentImage].style.display = "block"; //делаю следующее изображение видимым 
-        });
-      });
+      let i = 1; // их можно посчитать и добавить еще третью картинку
+      function onRightClick() {
+        i++;
+        let img = document.querySelector(".image");
+        img.src = i +".JPG"
+      }
+      function onLeftClick(){
+        i--;
+        let img = document.querySelector(".image");
+        img.src = `${i}.JPG`;
+      }
     </script>
   </body>
 </html>

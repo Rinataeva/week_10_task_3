@@ -76,7 +76,7 @@
       const galleryImg = document.getElementById("img1");
       const divElem = document.querySelector(".imgDiv");
       const backBtn = document.getElementById("backBtn");
-      const forBtn = document.getElementById("forBtn");
+      const forwardBtn = document.getElementById("forBtn");
 
       //Объявляю переменную для текущего изображения
       let currentPage = image1;
@@ -85,7 +85,7 @@
         galleryImg.src = currentPage;
       }
       //нужно с нажатием получать другую картинку. Слушаю addEventListener два события (нажатие и смену картинки)/ вызываю функцию внутри
-      forBtn.addEventListener("click", () => {
+      forwardBtn.addEventListener("click", () => {
         currentPage = image2;
         shiftImg();
       });
